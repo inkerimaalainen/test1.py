@@ -1,0 +1,4 @@
+ls -l -h
+total 16
+-rw-r--r--@ 1 nikita  staff    94B 19 марта 13:32 task_3-4_1_1.txt
+-rw-r--r--  1 nikita  staff     9B 19 марта 13:37 task_3-4_1_2.txt
