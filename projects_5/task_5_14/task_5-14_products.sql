@@ -1,0 +1,4 @@
+select
+name as Название_товара, 
+category as Категория
+from products; 
