@@ -202,6 +202,20 @@ try:
         va='top',
         bbox=dict(boxstyle="round")
     )
+    axes[0, 1].annotate(
+    f"Выбросы начинаются с {upper:.0f}",
+    xy=(upper, 1),          # куда указывает стрелка
+    xytext=(upper * 1.15, 8),  # где расположен текст
+    arrowprops=dict(
+        arrowstyle="->",
+        lw=2
+    ),
+    bbox=dict(
+        boxstyle="round",
+        facecolor="lightyellow"
+    )
+)
+
     # --------------------------------------------
     # 3. Boxplot цен по категориям
     # --------------------------------------------
