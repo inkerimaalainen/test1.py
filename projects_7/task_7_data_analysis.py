@@ -1,10 +1,13 @@
+import numpy as np
 import psycopg2
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib
-
+    
 matplotlib.rcParams['font.family'] = 'DejaVu Sans'
+connection = None
+
 
 
 try:
@@ -145,7 +148,7 @@ try:
         color='red',
         linestyle='--',
         label=f'Среднее: {overall_avg:.0f}'
-    )
+                )
 
     for bar in bars:
         height = bar.get_height()
@@ -221,25 +224,29 @@ try:
     # --------------------------------------------
 
     sns.boxplot(
-        data=df,
-        x="category",
-        y="price",
-        ax=axes[1, 0]
-    )
+    data=df,
+    x="category",
+    y="price",
+    palette="Set2",
+    showfliers=True,
+    ax=axes[1, 0]
+)
 
-    axes[1, 0].set_title("Распределение цен по категориям")
-    axes[1, 0].tick_params(axis='x')
+    sns.stripplot(
+    data=df,
+    x="category",
+    y="price",
+    hue="category",
+    palette="Set2",
+    jitter=0.2,
+    alpha=0.5,
+    size=5,
+    legend = False,
+    ax=axes[1, 0]
+)
     axes[1, 0].set_ylabel("Цена")
     axes[1, 0].set_xlabel("Категория")
 
-
-    axes[1, 0].text(
-        0.80,
-        0.90,
-        f"Аномалий: {len(outliers)}",
-        transform=axes[1, 0].transAxes,
-        bbox=dict(boxstyle="round")
-    )
 
 # --------------------------------------------
 # 4. Круговая диаграмма товаров по категориям
